@@ -1,9 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Navbar/Navbar";
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Shop from "./pages/Shop";
+import ShopCategory from "./pages/ShopCategory";
+import Product from "./pages/Product";
+import LoginSignup from "./pages/LoginSignup";
+import Cart from "./pages/Cart";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Shop />} />
+          <Route path="/mens" element={<ShopCategory category="mens" />} />
+          <Route path="/womens" element={<ShopCategory category="women" />} />
+          <Route path="/kids" element={<ShopCategory category="kid" />} />
+          <Route path="/product" element={<Product />} />
+            <Route path="/product/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<LoginSignup />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
