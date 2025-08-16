@@ -53,3 +53,127 @@
 .newsletter div button:hover {
   background: #555;
 }
+@media (max-width: 1280px) {
+  .newsletter {
+    height: auto; /* let height adjust automatically */
+    padding: 0px 80px;
+    margin-bottom: 120px;
+    gap: 20px;
+  }
+  
+  .newsletter h1 {
+    font-size: 36px;
+  }
+  
+  .newsletter p {
+    font-size: 18px;
+  }
+  
+  .newsletter div {
+    width: 600px;
+    height: 60px; 
+  }
+  
+  .newsletter input {
+    width: calc(100% - 40px); /* full width minus padding */
+    margin-left: 0; /* reset margin */
+  }
+  .newsletter div button {
+    width: 160px; 
+    height: 60px;
+    font-size: 14px; /* smaller font size */
+  }
+}
+
+@media (max-width: 1024px) {
+  .newsletter {
+    font-size: 30px;
+  }
+  
+  .newsletter h1 {
+    font-size: 32px;
+  }
+  
+  .newsletter p {
+    font-size: 14px;
+  }
+  
+  .newsletter div {
+    width: 600px;
+    height: 60px; 
+  }
+  
+  .newsletter input {
+    width: 300px; 
+    font-size: 14px;
+  }
+  .newsletter div button {
+    width: 120px; 
+    height: 50px;
+    font-size: 13px; /* smaller font size */
+  }
+}
+@media (max-width: 800px) {
+  .newsletter {
+    font-size: 25px;
+    height: 30vh;
+
+  }
+  
+  .newsletter h1 {
+    font-size: 25px;
+  }
+  
+  .newsletter p {
+    font-size: 12px;
+  }
+  
+  .newsletter div {
+    width: 400px;
+    height: 40px; 
+  }
+  
+  .newsletter input {
+    width: 300px; 
+    font-size: 14px;
+  }
+  .newsletter div button {
+    width: 100px; 
+    height: 40px;
+    font-size: 12px; /* smaller font size */
+  }
+}
+
+@media (max-width: 500px) {
+  .newsletter {
+    font-size: 25px;
+    height: 25vh;
+    width: 100%;
+    gap: 15px;
+
+  }
+  
+  .newsletter h1 {
+    font-size: 16px;
+  }
+  
+  .newsletter p {
+    font-size: 12px;
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  .newsletter div {
+    width: 290px;
+  }
+  
+  .newsletter input {
+    width: 300px; 
+    font-size: 14px;
+  }
+  .newsletter div button {
+    width: 100px; 
+    height: 40px;
+    font-size: 12px; /* smaller font size */
+  }
+}

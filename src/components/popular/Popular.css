@@ -20,3 +20,116 @@
   align-items: center;
   gap: 20px;
 }
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .popular {
+    height: 80vh; /* slightly shorter for better fit */
+    gap: 15px;
+    padding: 0 100px; /* add some horizontal padding */
+  }
+
+  .popular h1 {
+    font-size: 42px; /* slightly smaller but still prominent */
+    font-weight: 600;
+    color: #171717;
+    margin-bottom: 10px;
+  }
+
+  .popular hr {
+    width: 180px;
+    height: 5px;
+    border-radius: 8px;
+    background-color: #ff4141; /* assuming you want red like before */
+    border: none;
+  }
+
+  .popular-item {
+    gap: 25px;
+    align-items: flex-start; /* better alignment if items have different heights */
+  }
+}
+
+@media (max-width: 1024px) {
+  .popular {
+    height: auto;          /* Let height adjust naturally */
+    padding: 0 40px;       /* Less horizontal padding */
+    gap: 12px;
+  }
+
+  .popular h1 {
+    font-size: 36px;       /* Smaller font for smaller screen */
+    margin-bottom: 8px;
+  }
+
+  .popular hr {
+    width: 140px;
+    height: 4px;
+    border-radius: 6px;
+    background-color: #ff4141;
+    border: none;
+  }
+
+  .popular-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .popular {
+    height: auto;           /* Let height adjust naturally */
+    padding: 0 20px;        /* Less horizontal padding */
+    gap: 10px;
+  }
+
+  .popular h1 {
+    font-size: 30px;        /* Smaller heading */
+    text-align: center;     /* Center title for narrow screens */
+    margin-bottom: 6px;
+  }
+
+  .popular hr {
+    width: 120px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #ff4141;
+    border: none;
+    margin: 0 auto;         /* Center the hr */
+  }
+
+  .popular-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 500px) {
+  .popular {
+    height: auto;
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .popular h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .popular hr {
+    width: 100px;
+    height: 3px;
+    border-radius: 4px;
+    background-color: #ff4141;
+    border: none;
+    margin: 0 auto;
+  }
+
+  .popular-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
