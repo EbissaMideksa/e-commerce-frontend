@@ -1,9 +1,31 @@
-.item{
+/* .item{
   width:350px;
   margin: 0;
   padding: 0px;
 
 }
+.item {
+  max-width: 250px;
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+  */
+  .item-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px; 
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
 .item p{
   margin: 6px 0px;
 }
@@ -22,24 +44,89 @@
   font-weight: 600;
   text-decoration: line-through;
 }
-
 .item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-  object-fit: cover; /* optional */
-  border-radius: 8px; /* optional */
+  width: 80px;
+  height: 100px; 
+  object-fit: contain; 
 }
+.item img {
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px; 
+}
+
+.item:hover img {
+  transform: scale(1.05); 
+}
+
 
 .item img {
   width: 100%;
   height: auto;
   display: block;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Smooth scaling */
+  transition: transform 0.3s ease; 
 }
 
 .item:hover img {
-  transform: scale(1.05); /* Grow by 5% on hover */
+  transform: scale(1.05);  
+}
+.item p,
+.item h3,
+.item span {
+  margin: 4px 0;
+  text-align: center;
+  font-size: 14px;
+}
+.item-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+ .item {
+  width: 100%;
+  max-width: 240px;
+  height: 320px; /* Controls overall item height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.item img {
+  width: 100%;
+  height: 180px; /* Smaller image = visible row gap */
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.item p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-price {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  margin-top: auto; /* Pushes price to the bottom of the item */
+}
+
+.item-price-new {
+  color: #1e1e1e;
+  font-weight: bold;
+}
+
+.item-price-old {
+  color: gray;
+  text-decoration: line-through;
 }
