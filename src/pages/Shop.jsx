@@ -8,7 +8,7 @@ import NewsLetter from '../components/news-letter/NewsLetter'
 
 const Shop = () => {
   return (
-    <div>
+    <div style={{ paddingTop: '50px' }}>
       <Hero />
       <Popular />
       <Offers />

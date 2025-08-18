@@ -4,12 +4,24 @@ import Item from '../item/Item'
 import data_product from '../Assets/data'
 
 const Popular = () => {
+
+  const [popularItems, setPopularItems] = React.useState([]);
+
+  React.useEffect(() => {
+    const fetchPopularItems = async () => {
+      const response = await fetch('http://localhost:4000/popularwomen');
+      const data = await response.json();
+      setPopularItems(data);
+    };
+    fetchPopularItems();
+  }, []);
+
   return (
     <div className='popular'>
       <h1>POPULAR IN WOMEN</h1>
       <hr/>
       <div className="popular-item">
-        {data_product.map((item,i)=>{
+        {popularItems.map((item,i)=>{
           return< Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price} />
         })}
       </div>
