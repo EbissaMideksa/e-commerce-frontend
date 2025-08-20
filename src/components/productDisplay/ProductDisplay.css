@@ -4,6 +4,7 @@
   padding: 40px 80px;
   align-items: flex-start;
   font-family: 'Segoe UI', sans-serif;
+  margin-top: 25px;
 }
 
 .product-display-left {
@@ -128,6 +129,26 @@
 .productdisplay-right-size-category span {
   font-weight: 500;
   color: #222;
+}
+.cart-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  font-size: 16px;
+  z-index: 999;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
 }
 
 @media (max-width: 1280px) {

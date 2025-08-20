@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin-top: 70px;
 }
 
 /* Container (form box) */
@@ -140,6 +141,8 @@
     padding: 30px 15px;
     height: auto; /* allow content to grow if needed */
     flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 63px;
   }
 
   .login-signup-container {
@@ -189,6 +192,7 @@
     height: auto;
     flex-direction: column;
     justify-content: flex-start;
+    margin-top: 63px;
   }
 
   .login-signup-container {

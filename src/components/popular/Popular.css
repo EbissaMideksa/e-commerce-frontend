@@ -20,6 +20,28 @@
   align-items: center;
   gap: 20px;
 }
+.popular-item-wrapper {
+  width: 100%;
+  overflow: hidden;   /* hide overflow */
+  position: relative;
+}
+
+.popular-item {
+  display: flex;
+  gap: 20px;
+  animation: slide-left 20s linear infinite;
+  /* adjust animation duration to control speed */
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+    /* -50% or more depending on content width */
+  }
+}
 
 @media (min-width: 1025px) and (max-width: 1280px) {
   .popular {

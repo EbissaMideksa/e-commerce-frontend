@@ -173,8 +173,7 @@
 
 @media (max-width: 800px) {
 .item {
-  width: 120px;
-  font-size: 12px;
+  font-size: 80px;
 }
 .item img {
   width: 120px;
@@ -187,7 +186,7 @@
   
   }
   .item p{
-    font-size: 16px;
+    font-size: 10px;
   }
 }
 

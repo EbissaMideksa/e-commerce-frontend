@@ -14,12 +14,12 @@ const ShopContextProvider = (props) => {
 
 
     const getDefaultCart = (products) => {
-  let cart = {};
-  for (let i = 0; i < products.length; i++) {
-    cart[products[i].id] = 0;
-  }
-  return cart;
-};
+      let cart = {};
+      for (let i = 0; i < products.length; i++) {
+        cart[products[i].id] = 0;
+      }
+      return cart;
+    };
 
   useEffect(() => {
     fetch("http://localhost:4000/all_products")
@@ -28,8 +28,6 @@ const ShopContextProvider = (props) => {
         if (data.success && data.products) {
           setAllProducts(data.products);
           setCartItems(getDefaultCart(data.products));
-          const kidsProducts = data.products.filter((p) => p.category === "kids");
-          console.log("KidsProducts:", kidsProducts);
 
           if(localStorage.getItem("auth-token")) {
             fetch("http://localhost:4000/getcartdata", {
@@ -51,23 +49,16 @@ const ShopContextProvider = (props) => {
   }, []);
  
 
-//console.log(JSON.stringify(all_product, null, 2)); // Pretty
 
- /*  const addToCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] + 1,
-    }));
-  }; */
 
-  // ✅ Add to cart function
+  //  Add to cart function
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
       ...prev,
       [itemId]: prev[itemId] + 1,
     }));
 
-    // ✅ Notify backend
+    //  Notify backend
     if (localStorage.getItem("auth-token")) {
       fetch("http://localhost:4000/addtocart", {
         method: "POST",
@@ -87,10 +78,13 @@ const ShopContextProvider = (props) => {
 
 
   const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] > 0 ? prev[itemId] - 1 : 0,
-    }));
+    if (window.confirm("Are you sure you want to remove this item from the cart?")) {
+      setCartItems((prev) => ({
+        ...prev,
+        [itemId]: 0,
+        /* [itemId]: prev[itemId] > 0 ? prev[itemId] -1: 0, */
+      }));
+    }
 
     //Notify Backend
      if (localStorage.getItem("auth-token")) {
@@ -110,7 +104,7 @@ const ShopContextProvider = (props) => {
     }
   };
 
-  // ✅ Calculate total cart amount
+  //  Calculate total cart amount
   const getTotalCartAmount = () => {
     let total = 0;
     for (let product of all_product) {
@@ -138,8 +132,8 @@ const ShopContextProvider = (props) => {
     cartItems,
     addToCart,
     removeFromCart,
-    getTotalCartAmount, // ✅ Expose function to context
-    getTotalCartQuantity, // ✅ Expose function to context
+    getTotalCartAmount, 
+    getTotalCartQuantity, //  Expose function and variable to context
   };
 
   return (

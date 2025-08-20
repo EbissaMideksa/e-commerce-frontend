@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext,useState} from 'react'
 import './ProductDisplay.css'
 import { ShopContext } from '../../context/ShopContext'
 import star_icon from '../Assets/star_icon.png'
@@ -9,60 +9,15 @@ import dull_icon from '../Assets/star_dull_icon.png'
 const ProductDisplay = (props) => {
   const {addToCart} = useContext(ShopContext);
   const { product } = props;
-  return (
-   /*  <div className='product-display'>
-       <div className="product-display-left">
-          <div className="product-display-img-list">
-            <img src={product.image} alt={product.name} />
-            <img src={product.image} alt={product.name} />
-            <img src={product.image} alt={product.name} />
-            <img src={product.image} alt={product.name} />
-          </div>
-          <div className="product-display-img">
-            <img className='main-image' src={product.image} alt={product.name} />
-          </div>
+  const [showNotification, setShowNotification] = useState(false);
 
-       </div>
-       <div className="product-display-right">
-         <h2>{product.name}</h2>
-         <p>{product.description}</p>
-         <div className="product-display-right-star">
-           <img src={star_icon} alt="Star" />
-           <img src={star_icon} alt="Star" />
-           <img src={star_icon} alt="Star" />
-           <img src={star_icon} alt="Star" />
-           <img src={dull_icon} alt="Dull Star" />
-           <p>{product.rating} / 122</p>
-         </div>
-         <div className="productdisplay-right-price">
-           <div className="productdisplay-right-price-old">
-             <span>${product.old_price}</span>
-           </div>
-           <div className="productdisplay-right-price-new">
-             <span>${product.new_price}</span>
-           </div>
-           <div className="productdisplay-right-description">
-            <p>A light weighted, usually knitted pullover shirt, 
-              perfect for layering  and with a stylish design, worn 
-              as an under shirt or outer garment</p>
-           </div>
-           <div className="productdisplay-right-size">
-            <p>Select Size:</p>
-            <div className="productdisplay-right-size-options">
-              <span>Small</span>
-              <span>Medium</span>
-              <span>Large</span>
-              <span>Extra Large</span>
-            </div>
-           <button>Add to Cart</button>
-           </div>
-           <p className="productdisplay-right-size-category"><><span>Women: <span>T-shirt, Crop Top</span> </span> </></p>
-           <p className="productdisplay-right-size-category"><><span>Tags: <span>Modern, Latest</span> </span> </></p>
-         </div>
-       </div>
-    </div> */
+  return (
+    
+
     <div className='product-display'>
   {/* Left: Thumbnails + Main Image */}
+ 
+
   <div className="product-display-left">
     <div className="product-display-img-list">
       <img src={product.image} alt={product.name} />
@@ -105,7 +60,21 @@ const ProductDisplay = (props) => {
         <span>XL</span>
         <span>XXL</span>
       </div>
-      <button onClick={() => addToCart(product.id)} className="add-to-cart-btn">ADD TO CART</button>
+       {showNotification && (
+          <div className="cart-notification">
+            ✅ Added to cart!
+          </div>
+          )}
+     <button
+        onClick={() => {
+          addToCart(product.id);
+          setShowNotification(true);
+          setTimeout(() => setShowNotification(false), 2000); // hide after 2s
+        }}
+        className="add-to-cart-btn"
+      >
+        ADD TO CART
+      </button>
     </div>
 
     <p className="productdisplay-right-size-category">

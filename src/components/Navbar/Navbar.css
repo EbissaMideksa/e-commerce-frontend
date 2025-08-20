@@ -141,9 +141,10 @@
     height: 24px;
   }
   .nav-cart-count {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     font-size: 10px;
+    margin-left: -35px;
   }
 
 }

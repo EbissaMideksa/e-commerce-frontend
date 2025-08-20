@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
+import React, { useEffect,useState, useContext } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
-import { Link } from 'react-router-dom'
 import {ShopContext} from '../../context/ShopContext'
 import drop_down from '../Assets/drop_down.png'
 
@@ -10,11 +10,20 @@ const Navbar = () => {
   const [menu,setMenu] = React.useState('shop');
   const { getTotalCartQuantity } = useContext(ShopContext);
   const menuRef = React.useRef(null);
+  const [userName, setUserName] = useState('');
+  const navigate = useNavigate();
+
 
   const dropDown=(e)=>{
     menuRef.current.classList.toggle('nav-menu-visible');
     e.target.classList.toggle('open');
   }
+
+  useEffect(() => {
+    const name = localStorage.getItem('user-name');
+    if (name) setUserName(name);
+  }, []);
+
   return (
     <div className="Navbar">
       <div className="nav-logo">
@@ -29,15 +38,26 @@ const Navbar = () => {
           <li onClick={() => setMenu('kids')}><Link to="/kids" style={{ textDecoration: 'none' }}>Kids {menu === 'kids' ? <hr /> : <></>}</Link></li>
       </ul>
       <div className="nav-login-cart">
-        {localStorage.getItem('auth-token') ?
-         <button onClick={() => {
-           localStorage.removeItem('auth-token');
-           window.location.replace("/");
-           }}>
-            Logout
-          </button>
-         :<Link to="/login"><button>Login</button></Link>}
+        {localStorage.getItem('auth-token') ?(
+            <>
+            <span className="nav-username">Hi, {userName}</span>
+            <button onClick={() => {
+              // Handle logout logic here
+             /*  if (prompt("Are you sure you want to logout?")) */
+                if (window.confirm("Are you sure you want to logout?")){ 
+                localStorage.removeItem('auth-token');
+                localStorage.removeItem('user-name');
+                //window.location.replace("/");
+                navigate("/cart");
 
+              }
+            }}>
+              Logout
+            </button>
+          </>
+         ):<Link to="/login"><button>Login</button></Link>}
+
+           
         <Link to="/cart"><img src={cart_icon} alt="Cart Icon" /></Link>
         <div className="nav-cart-count">{getTotalCartQuantity()}</div>
       </div>
