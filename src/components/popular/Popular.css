@@ -43,6 +43,7 @@
   }
 }
 
+
 @media (min-width: 1025px) and (max-width: 1280px) {
   .popular {
     height: 80vh; /* slightly shorter for better fit */

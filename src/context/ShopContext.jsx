@@ -28,6 +28,7 @@ const ShopContextProvider = (props) => {
         if (data.success && data.products) {
           setAllProducts(data.products);
           setCartItems(getDefaultCart(data.products));
+          console.log(data.products)
 
           if(localStorage.getItem("auth-token")) {
             fetch("http://localhost:4000/getcartdata", {
@@ -133,7 +134,7 @@ const ShopContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount, 
-    getTotalCartQuantity, //  Expose function and variable to context
+    getTotalCartQuantity, //  Expose functions and variables to context
   };
 
   return (
