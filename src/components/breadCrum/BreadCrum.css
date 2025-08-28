@@ -1,0 +1,114 @@
+/* BreadCrum.css */
+
+.bread-crum {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  user-select: none;
+}
+
+.bread-crum img {
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  margin: 0 6px;
+}
+
+@media (max-width: 1280px) {
+  .bread-crum {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 13px;          /* slightly smaller font */
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 6px;                 /* a bit less gap for narrower screen */
+    padding: 8px 16px;        /* reduce padding */
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    user-select: none;
+    flex-wrap: wrap;          /* wrap if needed */
+  }
+
+  .bread-crum img {
+    width: 10px;              /* smaller arrow icon */
+    height: 10px;
+    object-fit: contain;
+    margin: 0 4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bread-crum {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;           /* smaller font */
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 5px;                  /* reduced gap */
+    padding: 6px 12px;         /* smaller padding */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    user-select: none;
+    flex-wrap: wrap;           /* allow wrapping */
+  }
+
+  .bread-crum img {
+    width: 9px;                /* smaller arrow */
+    height: 9px;
+    object-fit: contain;
+    margin: 0 3px;
+  }
+}
+
+@media (max-width: 800px) {
+  .bread-crum {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 11px;           /* smaller font */
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 4px;                  /* reduced gap */
+    padding: 5px 10px;         /* smaller padding */
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    user-select: none;
+    flex-wrap: wrap;           /* allow wrapping */
+  }
+
+  .bread-crum img {
+    width: 8px;                /* smaller arrow */
+    height: 8px;
+    object-fit: contain;
+    margin: 0 2px;
+  }
+}
+
+@media (max-width: 500px) {
+  .bread-crum {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 9px;            /* even smaller font */
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 3px;                  /* very tight gap */
+    padding: 4px 8px;          /* minimal padding */
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    user-select: none;
+    flex-wrap: wrap;           /* allow wrapping */
+    justify-content: center;   /* center align if wrapped */
+  }
+
+  .bread-crum img {
+    width: 6px;                /* smaller arrow */
+    height: 6px;
+    object-fit: contain;
+    margin: 0 1px;
+  }
+}

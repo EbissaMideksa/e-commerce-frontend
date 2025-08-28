@@ -1,0 +1,40 @@
+.product-tabs {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.tab-buttons button {
+  background: none;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.tab-buttons button.active {
+  border-bottom: 2px solid red;
+  color: #000;
+}
+
+.tab-content {
+  padding: 0 1rem 1rem;
+}
+
+.description-text {
+  line-height: 1.5;
+  color: #333;
+}
+
+.review-item {
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
