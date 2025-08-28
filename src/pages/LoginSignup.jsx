@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import './LoginSignup.css'
 
 const LoginSignup = () => {
+  const backendUrl = 'https://ecommerce-backend-producing.up.railway.app';
+
 
   const [state,setState] = useState('Login');
   const [agree, setAgree] = useState(false);
@@ -33,7 +35,7 @@ const LoginSignup = () => {
     // Handle login logic here
     console.log('Login function called', formData);
      let responseData;
-    await fetch('http://localhost:4000/login',{
+    await fetch(`${backendUrl}/login`,{
       method: 'POST',
       headers: {
         Accept:'application/json',
@@ -62,7 +64,7 @@ const LoginSignup = () => {
    const signup=async () => {
     // Handle signup logic here
     let responseData;
-    await fetch('http://localhost:4000/signup',{
+    await fetch(`${backendUrl}/signup`,{
       method: 'POST',
       headers: {
         Accept:'application/json',

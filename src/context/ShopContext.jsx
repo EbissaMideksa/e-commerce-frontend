@@ -2,6 +2,8 @@ import React, { createContext,useEffect,useState } from "react";
 //import all_product from '../components/Assets/all_product';
 
 export const ShopContext = createContext(null);
+const backendUrl = 'https://ecommerce-backend-producing.up.railway.app';
+
 
 
 
@@ -22,7 +24,8 @@ const ShopContextProvider = (props) => {
     };
 
   useEffect(() => {
-    fetch("http://localhost:4000/all_products")
+    fetch(`${backendUrl}/all_products`)
+
       .then((response) => response.json())
       .then((data) => {
         if (data.success && data.products) {
@@ -31,7 +34,7 @@ const ShopContextProvider = (props) => {
           console.log(data.products)
 
           if(localStorage.getItem("auth-token")) {
-            fetch("http://localhost:4000/getcartdata", {
+            fetch(`${backendUrl}/getcartdata`, {
               method: "POST",
               headers: {
                 Accept: "application/json",
@@ -61,7 +64,7 @@ const ShopContextProvider = (props) => {
 
     //  Notify backend
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/addtocart", {
+      fetch(`${backendUrl}/addtocart`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -89,7 +92,7 @@ const ShopContextProvider = (props) => {
 
     //Notify Backend
      if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:4000/removefromcart", {
+      fetch(`${backendUrl}/removefromcart`, {
         method: "POST",
         headers: {
           Accept: "application/json",

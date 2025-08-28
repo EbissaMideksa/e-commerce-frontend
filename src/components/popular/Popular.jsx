@@ -4,12 +4,14 @@ import Item from '../item/Item'
 import data_product from '../Assets/data'
 
 const Popular = () => {
+  const backendUrl = 'https://ecommerce-backend-producing.up.railway.app';
+
 
   const [popularItems, setPopularItems] = useState([]);
 
   useEffect(() => {
     const fetchPopularItems = async () => {
-      const response = await fetch('http://localhost:4000/popularwomen');
+      const response = await fetch(`${backendUrl}/popularwomen`);
       const data = await response.json();
       setPopularItems(data);
     };
