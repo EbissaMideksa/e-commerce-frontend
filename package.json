@@ -1,6 +1,7 @@
 {
   "name": "frontend",
-  "homepage": "https://ebissamideksa.github.io/E-commerce-frontend",
+  "homepage": "https://EbissaMideksa.github.io/e-commerce-frontend",
+
   "version": "0.1.0",
   "private": true,
   "dependencies": {
