@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
 import './LoginSignup.css'
+import { useNavigate } from 'react-router-dom';
 
 const LoginSignup = () => {
-  const backendUrl = 'https://ecommerce-backend-producing.up.railway.app';
+  const backendUrl = 'https://ecommerce-backend-production1.up.railway.app';
 
 
   const [state,setState] = useState('Login');
@@ -13,6 +14,8 @@ const LoginSignup = () => {
     email: '',
     password: ''
   });
+
+  const navigate=useNavigate()
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +56,8 @@ const LoginSignup = () => {
         console.log('Login response:', responseData.name);
 
         // Redirect or perform any other actions
-        window.location.replace("/")
+        //window.location.replace("/")
+        navigate("/");
         
       } else {
         // Handle signup error
@@ -82,7 +86,8 @@ const LoginSignup = () => {
         console.log('Login response:', responseData.name);
         
         // Redirect or perform any other actions
-        window.location.replace("/")
+        //window.location.replace("/")
+        navigate("/");
       } else {
         // Handle signup error
         alert(responseData.errors || "Signup failed");
@@ -90,7 +95,8 @@ const LoginSignup = () => {
   } 
 
 
- /*      const signup = async () => {
+ /*     
+  const signup = async () => {
   try {
     const response = await fetch('http://localhost:4000/signup', {
       method: 'POST',
@@ -121,7 +127,8 @@ const LoginSignup = () => {
   }
 };
  */
-  return (
+ 
+return (
     <div className='login-signup'>
       <div className='login-signup-container'>  
         <h2>{state}</h2>

@@ -2,7 +2,7 @@ import React, { createContext,useEffect,useState } from "react";
 //import all_product from '../components/Assets/all_product';
 
 export const ShopContext = createContext(null);
-const backendUrl = 'https://ecommerce-backend-producing.up.railway.app';
+const backendUrl = 'https://ecommerce-backend-production1.up.railway.app';
 
 
 

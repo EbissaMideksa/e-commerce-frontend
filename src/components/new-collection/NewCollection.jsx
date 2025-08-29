@@ -4,10 +4,11 @@ import Item from '../item/Item'
 //import new_collections from '../Assets/new_collections'
 
 const NewCollection = () => {
+  const backendUrl='https://ecommerce-backend-production1.up.railway.app'
   const [new_collections, setNewCollections] = React.useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/newcollection')
+    fetch(`${backendUrl}`)
       .then(response => response.json())
       .then(data => {
           setNewCollections(data);
