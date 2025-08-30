@@ -25,34 +25,34 @@ const ShopContextProvider = (props) => {
 
  
     useEffect(() => {
-      fetch(`${backendUrl}/all_products`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success && data.products) {
-            setAllProducts(data.products);
+  fetch(`${backendUrl}/all_products`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success && data.products) {
+        setAllProducts(data.products);
 
-            if (localStorage.getItem("auth-token")) {
-              // ✅ logged in: fetch cart data from backend
-              fetch(`${backendUrl}/getcartdata`, {
-                method: "POST",
-                headers: {
-                  Accept: "application/json",
-                  "auth-token": localStorage.getItem("auth-token"),
-                  "Content-Type": "application/json",
-                },
-                body: ""
-              })
-                .then((response) => response.json())
-                .then((data) => {
-                  setCartItems(data.cartData);
-                });
-            } else {
-              // ❌ not logged in: reset cart
-              setCartItems(getDefaultCart(data.products));
-            }
-          }
-        });
-    }, []);
+        if (localStorage.getItem("auth-token")) {
+          // ✅ logged in: fetch cart data from backend
+          fetch(`${backendUrl}/getcartdata`, {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "auth-token": localStorage.getItem("auth-token"),
+              "Content-Type": "application/json",
+            },
+            body: ""
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              setCartItems(data.cartData);
+            });
+        } else {
+          // 🚀 logout / guest: clear cart completely
+          setCartItems({});
+        }
+      }
+    });
+}, []);
 
 
   //  Add to cart function
