@@ -24,14 +24,7 @@ const LoginSignup = () => {
       [name]: value
     });
   }; 
-/*   const handleInputChange = (e) => {
-  const { name, value } = e.target;
-  setFormData(prev => {
-    const newForm = { ...prev, [name]: value };
-    console.log("Updated formData:", newForm);
-    return newForm;
-  });
-}; */
+
 
 
   const login=async () => {
@@ -95,39 +88,6 @@ const LoginSignup = () => {
   } 
 
 
- /*     
-  const signup = async () => {
-  try {
-    const response = await fetch('http://localhost:4000/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    // Check if response status is OK (200-299)
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => null);
-      alert(errorData?.errors || errorData?.message || `Signup failed with status ${response.status}`);
-      return;
-    }
-
-    const data = await response.json();
-
-    if (data.success) {
-      localStorage.setItem('token', data.token);
-      window.location.replace('/');
-    } else {
-      alert('Signup failed');
-    }
-  } catch (error) {
-    console.error('Signup error:', error);
-    alert('An unexpected error occurred during signup.');
-  }
-};
- */
- 
 return (
     <div className='login-signup'>
       <div className='login-signup-container'>  
